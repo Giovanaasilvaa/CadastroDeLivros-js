@@ -2,7 +2,7 @@
 
 ## Sobre o Projeto
 
-Meus Livros App é um sistema desenvolvido em **Node.js** para gerenciar seu acervo pessoal de livros.  
+Meus Livros App é um sistema desenvolvido em JS para gerenciar seu acervo pessoal de livros.  
 Ele permite que você crie um perfil, acompanhe quantos livros já leu, e gerencie seus livros de forma prática e visual.
 
 ### Funcionalidades principais
