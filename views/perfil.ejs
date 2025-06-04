@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="perfil">
+      <h2>Olá, <%= usuario.nome %>!</h2>
+
+      <img src="<%= usuario.foto ? usuario.foto : '/img/perfil.png' %>" alt="Foto de Perfil" class="img-perfil">
+
+      <form action="/perfil/atualizar-foto" method="post" enctype="multipart/form-data" class="form-foto">
+        <label for="arquivo" class="custom-file-label">Escolher Imagem</label>
+        <input type="file" name="nova_foto" id="arquivo" class="input-foto" accept="image/*" required>
+        <span id="nomeArquivo" class="nome-arquivo">Nenhum arquivo escolhido</span>
+        <button type="submit" class="botao-foto">Atualizar Foto</button>
+      </form>
+
+      <p><strong>Email cadastrado:</strong> <%= usuario.email %></p>
+      <p><strong>Livros lidos:</strong> <%= livros_lidos %></p>
+      
+
+      <a class="registro" href="/cadastrar">Voltar para Lista de Livros</a>
+    </div>
+  </div>
+
+  <script src="/js/foto.js"></script>
+</body>
+</html>

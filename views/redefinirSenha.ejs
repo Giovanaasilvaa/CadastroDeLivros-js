@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meus Livros</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="login-boxRedefinir">
+    <h1>Redefinir Senha</h1>
+
+  <% if (erro) { %>
+    <p style="color:red;"><%= erro %></p>
+  <% } %>
+
+  <form action="/redefinir-senha" method="POST">
+    <input type="hidden" name="token" value="<%= token %>">
+    
+    <label for="senha">Nova Senha:</label>
+    <div class="input-box">
+        <div class="senha-container">
+            <input type="password" name="senha" id="senha" required placeholder="Digite sua nova senha"><span class="toggle-senha" onclick="mostrarSenha('senha', 'icone-senha')"><img src="/olho_aberto.png" id="icone-senha" alt="Mostrar senha" width="24"></span>
+        </div>
+    </div>
+
+    <label for="confirma_senha">Confirmar Nova Senha:</label>
+    <div class="input-box">
+        <div class="senha-container">
+            <input type="password" name="confirma_senha" id="confirmar_senha" required placeholder="Confirme sua senha"><span class="toggle-senha" onclick="mostrarSenha('confirmar_senha', 'icone-senha-confirm')"><img src="/olho_aberto.png" id="icone-senha-confirm" alt="Mostrar senha" width="24"></span>
+        </div>
+    </div>  
+
+
+
+    <button type="submit">Redefinir Senha</button>
+  </form>
+
+  <a class="registro" href="/">Voltar para o Login</a>
+</div>
+</div>
+</body>
+<script src="/js/login.js"></script>
+</html>

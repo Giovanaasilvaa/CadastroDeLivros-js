@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recuperar Senha</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="login-boxSenha">
+      <h2>Recuperar Senha</h2>
+
+      <% if (erro) { %>
+        <p style="color: red;"><%= erro %></p>
+      <% } %>
+
+      <% if (sucesso) { %>
+        <p style="color: green;"><%= sucesso %></p>
+      <% } %>
+
+      <form method="POST" action="/esqueci-senha">
+        <label for="email">Digite seu e-mail cadastrado:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Seu e-mail"
+        />
+        <button type="submit">Enviar link de redefinição</button>
+      </form>
+
+      <p style="margin-top: 10px;">
+        <a class="registro" href="/">Voltar ao login</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meus Livros</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container__cada">
+    <!-- Links do topo -->
+    <div class="top-links">
+      <a href="/criar" class="btn-success">  
+        <img src="/livrinho.gif" alt="livro gif" class="image">
+        <strong>Cadastrar novo livro</strong>
+      </a>
+
+      <a href="/perfil" class="btn-success">
+        <img src="/perfil.png" alt="perfil" class="image">
+        <strong>Perfil</strong>
+      </a>
+
+      <a href="/logout" class="btn-success">
+        <img src="/sair.png" alt="sair da conta" class="image">
+        <strong>Sair da conta</strong>
+      </a>
+    </div>
+
+    <!-- Título principal -->
+    <h1 class="cada_livro">Meus Livros</h1>
+    <p class="cada_info">Passe o mouse sobre um título para ver os detalhes.</p>
+
+    <!-- Carrossel de livros -->
+    <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <% livros.forEach(livro => { %>
+          <div class="item"
+            data-titulo="<%= livro.titulo %>"
+            data-autor="<%= livro.autor %>"
+            data-descricao="<%= livro.descricao %>"
+            data-status="<%= livro.status %>"
+            data-id="<%= livro.id %>">
+
+            <% if (livro.capaPath) { %>
+              <img src="<%= livro.capaPath %>" alt="Capa do livro" class="capa-livro" />
+            <% } else { %>
+              <p class="titulo-livro"><%= livro.titulo %></p>
+            <% } %>
+
+            <form action="/atualizar-rating" method="POST">
+              <input type="hidden" name="id_livro" value="<%= livro.id %>">
+              <div class="rating" data-rating="<%= livro.rating %>">
+                <% for (let i = 1; i <= 5; i++) { %>
+                  <span 
+                    class="star<%= i <= livro.rating ? ' filled' : '' %>"
+                    data-value="<%= i %>" 
+                    onclick="submitRating(this, <%= livro.id %>)">☆</span>
+                <% } %>
+              </div>
+              <input type="hidden" name="rating" id="rating_<%= livro.id %>">
+            </form>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <!-- Detalhes do livro ao passar o mouse -->
+    <div class="detalhes-livro" id="detalhesLivro"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/cada.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+ <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <% if (erro) { %>
+        <p style="color:red;"><%= erro %></p>
+      <% } %>
+      <form method="POST" action="/login">
+        <label for="email">Email</label>
+        <div class="input-box">
+          <input type="email" name="email" required placeholder="Digite seu e-mail">
+        </div>
+
+       <label for="senha">Senha</label>
+          <div class="input-box">
+            <div class="senha-container"> 
+              <input type="password" name="senha" id="senha-login" required placeholder="Digite sua senha"><span class="toggle-senha" onclick="mostrarSenha('senha-login', 'icone-senha-login')"><img src="/olho_aberto.png" id="icone-senha-login" alt="Mostrar senha" width="24"></span>
+            </div>
+          </div>
+
+        <p><a class="esqueceu" href="/esqueci-senha">Esqueceu a senha?</a></p>
+
+        <button type="submit">Log in</button>
+      </form>
+
+      <p>Não tem uma conta? <a class="registro" href="/register">Cadastre-se</a></p>
+    </div>
+  </div>
+  
+</body>
+<script src="js/login.js"></script>
+</html>

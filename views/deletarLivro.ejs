@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Deletar Livro</title>
+ <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <div class="confirmar">
+      <h2>Deletar Livro</h2>
+      <p>Tem certeza que deseja deletar o livro <strong><%= livro.titulo %></strong>?</p>
+
+      <form method="POST">
+        <button type="submit" style="background-color: #e74c3c;">🗑️ Deletar</button>
+      </form>
+
+      <p style="margin-top: 10px;">
+        <a class="registro" href="/cadastrar">Cancelar e voltar</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Editar Livro</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="container-update">
+    <div class="login-boxEditar">
+      <h2>Editar Livro</h2>
+
+      <form method="POST" enctype="multipart/form-data">
+        <label for="titulo">Título do Livro:</label>
+        <div class="input-box">
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            required
+            value="<%= livro.titulo %>"
+          />
+        </div>
+
+        <label for="autor">Autor:</label>
+        <div class="input-box">
+          <input
+            type="text"
+            id="autor"
+            name="autor"
+            required
+            value="<%= livro.autor %>"
+          />
+        </div>
+
+        <label for="descricao">Descrição:</label>
+        <div class="input-box">
+          <input
+            type="text"
+            id="descricao"
+            name="descricao"
+            required
+            value="<%= livro.descricao %>"
+          />
+        </div>
+
+        <label for="nova_foto">Capa:</label>
+        <input type="file" id="nova_foto" name="nova_foto" accept="image/*" />
+        <span id="nomeArquivo">
+          <%= livro.capa ? livro.capa.split('/').pop() : 'Nenhuma capa selecionada' %>
+        </span>
+
+        <button type="submit">Salvar Alterações</button>
+      </form>
+
+      <p style="margin-top: 10px;">
+        <a class="registro" href="/cadastrar">Voltar para lista</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
