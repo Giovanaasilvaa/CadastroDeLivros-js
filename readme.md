@@ -1,45 +1,53 @@
-# Meus Livros App
 
-## Sobre o Projeto
+<h1 align="center">📚 CADASTRODELIVROS-JS</h1>
 
-Meus Livros App é um sistema desenvolvido com Node.js (Express.js), EJS, CSS, e banco de dados MySQL para gerenciar seu acervo pessoal de livros.  
-Ele permite que você crie um perfil, acompanhe quantos livros já leu, e gerencie seus livros de forma prática e visual.
+<p align="center"><em>Capacite sua biblioteca, simplifique o gerenciamento de livros sem esforço</em></p>
 
-### Funcionalidades principais
+<p align="center">
+  <img src="https://img.shields.io/badge/last%20commit-june-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/javascript-38.9%25-yellow?style=flat-square" />
+  <img src="https://img.shields.io/badge/languages-3-blue?style=flat-square" />
+</p>
 
-- Cadastro de usuários e perfis personalizados.
-- Controle de livros lidos, com contagem automática.
-- Cadastro de livros com título, autor, capa (imagem) e avaliação (rating) de 1 a 5 estrelas.
-- Edição e exclusão dos livros cadastrados.
-- Interface intuitiva para facilitar a navegação e a gestão da sua coleção.
+<h3 align="center">Construído com as ferramentas e tecnologias:</h3>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" />
+  <img src="https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white" />
+  <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" />
+  <img src="https://img.shields.io/badge/.env-ECD53F?style=for-the-badge&logo=dotenv&logoColor=black" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/EJS-8C8C8C?style=for-the-badge&logo=ejs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" />
+</p>
 
-## Como Funciona no Computador
+<hr>
 
-### Pré-requisitos
+<h2>📂 Sobre o Projeto</h2>
+<p>
+  O <strong>Cadastro de Livros - JS</strong> é um sistema desktop construído com <strong>Node.js</strong> e empacotado com <strong>Electron</strong>, permitindo o gerenciamento de uma biblioteca com funcionalidades como:
+</p>
+<ul>
+  <li>Cadastro de livros com título, autor, gênero e ano.</li>
+  <li>Listagem e visualização dos livros cadastrados.</li>
+  <li>Atualização e exclusão dos registros.</li>
+  <li>Interface interativa usando EJS e estilização com CSS.</li>
+</ul>
 
-- [Node.js](https://nodejs.org/) instalado (versão 16+ recomendada)
-- Banco de dados MySQL configurado
+<h2>💻 Como executar o projeto</h2>
+<pre><code># Instale as dependências
+npm install </pre></code>
 
-### Configuração
+<h2>💻 Importe o banco de dados:</h2>
+<p>O arquivo <code>banco/livros.sql</code> contém a estrutura e dados iniciais do banco.</p>
 
-1. Clone o repositório;
-2. Instale as dependências:
+<h2>💻 Configuração do envio de e-mail:</h2>
+<p>Para que o sistema de recuperação de senha funcione, é importante que você configure suas próprias credenciais de e-mail no código.</p>
 
-`npm install`
+<p>No arquivo responsável pelo envio de e-mails (no controller de senha), há um trecho como este:</p>
 
-3. Importe o banco de dados:
-
-O arquivo banco/livros.sql contém a estrutura e dados iniciais do banco. 
-
-4. Configuração do envio de e-mail:
-
-Para que o sistema de recuperação de senha funcione, é importante que você configure suas próprias credenciais de e-mail no código.
-
-No arquivo responsável pelo envio de e-mails (por exemplo, no controller de senha), há um trecho como este:
-
-const transporter = nodemailer.createTransport({
+<pre><code>const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
     user: process.env.EMAIL_USER,
@@ -49,25 +57,41 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized: false
   }
 });
+</code></pre>
 
-**Importante:** Você deve definir as variáveis de ambiente EMAIL_USER e EMAIL_PASS no seu ambiente local, ou alterar esse código para usar seus dados reais de e-mail e senha (de app), garantindo que o envio dos e-mails funcione corretamente.
+<p><strong>Importante:</strong> Você deve definir as variáveis de ambiente <code>EMAIL_USER</code> e <code>EMAIL_PASS</code> no seu ambiente local, ou alterar esse código para usar seus dados reais de e-mail e senha (de app), garantindo que o envio dos e-mails funcione corretamente.</p>
 
-**Nunca compartilhe publicamente suas credenciais reais.**
+<p><strong style="color: red;">Nunca compartilhe publicamente suas credenciais reais.</strong></p>
 
-5. Rode o servidor:
-`npm run dev`
 
-6. Acesse no navegador
+# Rode o servidor
+<pre><code>npm run dev
+</code></pre>
 
-# Versão Executável com Electron.js # 
-Este projeto também pode ser executado como um aplicativo desktop graças ao Electron.js.
+<p>Para rodar como aplicativo desktop:</p>
+<pre><code>npm run make</code></pre>
 
-O arquivo main.js é responsável por abrir o app como um programa independente, embutindo o servidor Express.
+<h2>🗂 Estrutura de Diretórios</h2>
+<pre><code>livros-node/
+├── app.js
+├── package.json
+├── views/
+├── public/
+├── controllers/
+├── models/
+├── routes/
+├── livros.sql
+</code></pre>
 
-O executável gerado pode ser distribuído para rodar em máquinas Windows, Linux ou Mac sem precisar instalar o Node.js.
+<h2>⚠️ Nota Importante</h2>
+<p><strong>Este projeto é destinado apenas para fins de testes e aprendizado.</strong> Não deve ser utilizado em produção sem as devidas adaptações e validações de segurança.</p>
 
-**Nota:** Por questões de organização, o arquivo main.js e a pasta com o executável (dist/) não estão no repositório principal, mas você pode gerar o executável localmente com o Electron seguindo as instruções na documentação do Electron.
+<h2>📦 Versão</h2>
+<p>1.0.0</p>
+
+<h2>📄 Licença</h2>
+<p>Esse projeto está sob a licença MIT.</p>
 
 ## Contato ##
-Giovana Marques Silva
+Giovana Marques Silva <br>
 giovanamarquessilva24@gmail.com
